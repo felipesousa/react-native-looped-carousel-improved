@@ -1,0 +1,55 @@
+{
+  "name": "react-native-looped-carousel-improved",
+  "version": "1.0.0",
+  "description": "Simple and Powerful Carousel to React Native.",
+  "author": "Felipe Sousa <felipzbr@gmail.com> (http://felipesousa.github.io)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "lint": "eslint index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felipesousa/react-native-looped-carousel-improved"
+  },
+  "bugs": {
+    "url": "https://github.com/felipesousa/react-native-looped-carousel-improved/issues"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "carousel",
+  ],
+  "tags": [
+    "react",
+    "native",
+    "carousel",
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=15.5.4",
+    "react-native": ">=0.42.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-preset-react-native": "^1.9.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "jest": "^20.0.4",
+    "react": "^15.5.4",
+    "react-native": "^0.42.0",
+    "react-test-renderer": "^15.5.4"
+  },
+  "dependencies": {
+    "lodash.isequal": "^4.5.0",
+    "prop-types": "^15.5.10"
+  },
+  "jest": {
+    "notify": true,
+    "preset": "react-native"
+  }
+}
