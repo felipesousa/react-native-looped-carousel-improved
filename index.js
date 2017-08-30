@@ -300,6 +300,9 @@ export default class Carousel extends Component {
 
   _renderBullets = (pageLength) => {
     const bullets = [];
+    let {currentPage} = this.state;
+    const { childrenLength } = this.state;
+
     for (let i = 0; i < pageLength; i += 1) {
       bullets.push(
         <TouchableWithoutFeedback onPress={() => this.animateToPage(i)} key={`bullet${i}`}>
@@ -313,7 +316,7 @@ export default class Carousel extends Component {
     return (
       <View style={styles.bullets} pointerEvents="box-none">
         <View style={[styles.bulletsContainer, this.props.bulletsContainerStyle]} pointerEvents="box-none">
-          {bullets}
+          {currentPage === 0 || currentPage === childrenLength -1 ? <Text></Text> : bullets}
         </View>
       </View>
     );
@@ -328,8 +331,17 @@ export default class Carousel extends Component {
     return (
       <View style={styles.arrows} pointerEvents="box-none">
         <View style={[styles.arrowsContainer, this.props.arrowsContainerStyle]} pointerEvents="box-none">
-          <TouchableOpacity onPress={() => this.animateToPage(this._normalizePageNumber(currentPage - 1))} style={this.props.arrowStyle}><Text style={this.props.leftArrowStyle}>{this.props.leftArrowText ? this.props.leftArrowText : 'Left'}</Text></TouchableOpacity>
-          <TouchableOpacity onPress={() => this.animateToPage(this._normalizePageNumber(currentPage + 1))} style={this.props.arrowStyle}><Text style={this.props.rightArrowStyle}>{this.props.rightArrowText ? this.props.rightArrowText : 'Right'}</Text></TouchableOpacity>
+          {
+            currentPage == childrenLength
+            ? <TouchableOpacity onPress={() => this.animateToPage(this._normalizePageNumber(currentPage - 1))} style={this.props.arrowStyle}><Text style={this.props.leftArrowStyle}></Text></TouchableOpacity>
+            : <TouchableOpacity onPress={() => this.animateToPage(this._normalizePageNumber(currentPage - 1))} style={this.props.arrowStyle}><Text style={this.props.leftArrowStyle}>{this.props.leftArrowText ? this.props.leftArrowText : 'Left'}</Text></TouchableOpacity>
+          }
+
+          {
+            currentPage == childrenLength - 1
+            ? <TouchableOpacity style={this.props.arrowStyle}><Text style={this.props.rightArrowStyle}></Text></TouchableOpacity>
+            : <TouchableOpacity onPress={() => this.animateToPage(this._normalizePageNumber(currentPage + 1))} style={this.props.arrowStyle}><Text style={this.props.rightArrowStyle}>{this.props.rightArrowText ? this.props.rightArrowText : 'Right'}</Text></TouchableOpacity>
+          }
         </View>
       </View>
     );
@@ -454,3 +466,4 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
 });
+
