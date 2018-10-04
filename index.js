@@ -39,6 +39,7 @@ export default class Carousel extends Component {
     bullets: PropTypes.bool,
     bulletsContainerStyle: Text.propTypes.style,
     bulletStyle: Text.propTypes.style,
+    hideBulletsIndices: PropTypes.arrayOf(PropTypes.number),
     arrows: PropTypes.bool,
     arrowsContainerStyle: Text.propTypes.style,
     arrowStyle: Text.propTypes.style,
@@ -75,6 +76,7 @@ export default class Carousel extends Component {
     bulletsContainerStyle: undefined,
     chosenBulletStyle: undefined,
     bulletStyle: undefined,
+    hideBulletsIndices: [],
     arrowsContainerStyle: undefined,
     arrowStyle: undefined,
     leftArrowStyle: undefined,
@@ -300,8 +302,8 @@ export default class Carousel extends Component {
 
   _renderBullets = (pageLength) => {
     const bullets = [];
-    let {currentPage} = this.state;
-    const { childrenLength } = this.state;
+    const { hideBulletsIndices } = this.props;
+    const { currentPage } = this.state;
 
     for (let i = 0; i < pageLength; i += 1) {
       bullets.push(
@@ -316,7 +318,7 @@ export default class Carousel extends Component {
     return (
       <View style={styles.bullets} pointerEvents="box-none">
         <View style={[styles.bulletsContainer, this.props.bulletsContainerStyle]} pointerEvents="box-none">
-          {currentPage === 0 || currentPage === childrenLength -1 ? <Text></Text> : bullets}
+          {!hideBulletsIndices.includes(currentPage) && bullets}
         </View>
       </View>
     );

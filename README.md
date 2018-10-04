@@ -39,7 +39,8 @@ pageInfoTextSeparator | string | ' / ' | separator for `{currentPage}` and `{tot
 bullets | bool | false | wether to show "bullets" at the bottom of the carousel
 bulletStyle | style | null | style for each bullet
 bulletsContainerStyle | style | null | style for the bullets container
-chosenBulletStyle | stlye | null | style for the selected bullet
+chosenBulletStyle | style | null | style for the selected bullet
+hideBulletsIndices | array | [] | overrides display of bullets on a per-page-basis
 **Arrows** | --- | --- | ---
 arrows | bool | false | wether to show navigation arrows for the carousel
 arrowsStyle | style | null | style for navigation arrows
